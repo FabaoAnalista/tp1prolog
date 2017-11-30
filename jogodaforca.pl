@@ -1,23 +1,38 @@
 
+% banco de palavras , o programa seleciona randomicamente a palavras que é uma lista de lista de palavras.
+[palavra(carro,[c,a,r,r,o]),palavra(computador,[c,o,m,p,u,t,a,d,o,r]),palavra(apartamento,[a,p,a,r,t,a,m,e,n,t,o]),
+palavra(melancia,[m,e,l,a,n,c,i,a]),palavra(camiseta,[c,a,m,i,s,e,t,a]),palavra(academia,[a,c,a,d,e,m,i,a]),
+palavra(gasolina,[g,a,s,o,l,i,n,a]),palavra(celular,[c,e,l,u,l,a,r]),palavra(geladeira,[g,e,l,a,d,e,i,r,a]),
+palavra(hospital,[h,o,s,p,i,t,a,l]),palavra(lanchonete,[l,a,n,c,h,o,n,e,t,e]),palavra(bicicleta,[b,i,c,i,c,l,e,t,a]),
+palavra(bateria[b,a,t,e,r,i,a]),palavra(caderno,[c,a,d,e,r,n,o]),palavra(lapiseira,[l,a,p,i,s,e,i,r,a]),
+palavra(escola,[e,s,c,o,l,a]),palavra(teclado,[t,e,c,l,a,d,o])].
 
-% base de palavras
-palavra(carro,[c,a,r,r,o]).
-palavra(computador,[c,o,m,p,u,t,a,d,o,r]).
-palavra(apartamento,[a,p,a,r,t,a,m,e,n,t,o]).
-palavra(melancia,[m,e,l,a,n,c,i,a]).
-palavra(camiseta,[c,a,m,i,s,e,t,a]).
-palavra(academia,[a,c,a,d,e,m,i,a]).
-palavra(gasolina,[g,a,s,o,l,i,n,a]).
-palavra(celular,[c,e,l,u,l,a,r]).
-palavra(geladeira,[g,e,l,a,d,e,i,r,a]).
-palavra(hospital,[h,o,s,p,i,t,a,l]).
-palavra(lanchonete,[l,a,n,c,h,o,n,e,t,e]).
-palavra(bicicleta,[b,i,c,i,c,l,e,t,a]).
-palavra(bateria[b,a,t,e,r,i,a]).
-palavra(caderno,[c,a,d,e,r,n,o]).
-palavra(lapiseira,[l,a,p,i,s,e,i,r,a]).
-palavra(escola,[e,s,c,o,l,a]).
-palavra(teclado,[t,e,c,l,a,d,o]).
+
+
+
+% Verifica se a letra L está na lista P
+	% Se não estiver, é retornado 0, indicando que a letra não existe na palavra e preenchendo a forca com um membro
+	% Se estiver, é retornado  1 (verdadeiro) e preenche o espeço da letra na devida posição.
+	verificaLetra (L,P,R) :- (member(L,P,R) -> R is 0;R is 1).
+
+
+
+$imprime intruções para o usuario
+
+imprimeInstrucoes :- 
+	print('Regras do jogo:'),nl,
+	print('1) O jogador possui 6 jogadas antes de ser enforacado'),
+	print('2) A cada jogada o jogador deve informar uma letra'), 
+	print('3) Para ganhar, jogador deve acertar a palavra antes de ser enforcado'),
+	print('4) Caso as jogadas acabem e o jogador não acerte a palavra, fim do jogo e ele é enforcado').
+
+
+% inicia o jogo
+% usuario inicia com 0 erros e o número máximo é de 6 erros.
+inicio :- escolhePalavra()
+	imprimeInstrucoes,
+	JaJogadas = [],
+	solicitaJogada().
 
 
 
