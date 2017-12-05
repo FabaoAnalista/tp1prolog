@@ -1,17 +1,8 @@
-
-% banco de palvavras  , o programa seleciona randomicamente a palavras que é uma lista de lista de palavras.
-%(melancia,[m,e,l,a,n,c,i,a]),(camiseta,[c,a,m,i,s,e,t,a]),(academia,[a,c,a,d,e,m,i,a]),
-%(gasolina,[g,a,s,o,l,i,n,a]),(celular,[c,e,l,u,l,a,r]),(geladeira,[g,e,l,a,d,e,i,r,a]),
-%(hospital,[h,o,s,p,i,t,a,l]),(lanchonete,[l,a,n,c,h,o,n,e,t,e]),h(bicicleta,[b,i,c,i,c,l,e,t,a]),
-%(bateria[b,a,t,e,r,i,a]),(caderno,[c,a,d,e,r,n,o]),(lapiseira,[l,a,p,i,s,e,i,r,a]),
-%(escola,[e,s,c,o,l,a]),.
-
-
 %banco de palavras
 
-palvavra(carro,[c,a,r,r,o]),
-palvavra(teclado,[t,e,c,l,a,d,o]),
-palvavra(caderno,[c,a,d,e,r,n,o])).
+%palvavra(carro,['c','a','r','r','o']),
+%palvavra(teclado,['t','e','c','l','a','d','o']),
+%palvavra(caderno,['c','a','d','e','r','n','o'])).
 
 
 %buscaPalavraLista(palvavra(carro,[c,a,r,r,o]),(teclado,[t,e,c,l,a,d,o]),(caderno,[c,a,d,e,r,n,o])).
@@ -36,15 +27,18 @@ palvavra(caderno,[c,a,d,e,r,n,o])).
 %insertLetraUsuario(X,L,[X|L]).
 
 
-%imprime intruções para o usuario
-
-
-%imprimeInstrucoes :- buscaPalavraLista,
-%	print('Regras do jogo:'),
-%	print('1) O jogador possui 6 jogadas antes de ser enforacado'),
-%	print('2) A cada jogada o jogador deve informar uma letra'), 
-%	print('3) Para ganhar, jogador deve acertar a h antes de ser enforcado'),
-%	print('4) Caso as jogadas acabem e o jogador não acerte a h, fim do jogo e ele é enforcado').
+menu(0).
+menu(_) :- 
+	repeat,
+	write('Regras do jogo:'),nl,
+	write('1) O jogador possui 6 jogadas antes de ser enforacado'),nl,
+	write('2) A cada jogada o jogador deve informar uma letra'),nl,
+	write('3) Para ganhar, jogador deve acertar a h antes de ser enforcado'),nl,
+	write('4) Caso as jogadas acabem e o jogador não acerte a h, fim do jogo e ele é enforcado'),nl,
+	write('Digite a opção'),
+	read(X),
+	X>=0,
+	\+(X>=4),
 
 
 % inicia o jogo
